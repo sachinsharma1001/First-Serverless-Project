@@ -9,7 +9,7 @@
   "dependencies": {
     "aws-sdk": "^2.809.0",
     "source-map-support": "^0.5.19",
-    "uuid": "^8.3.2"
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@serverless/typescript": "^2.12.0",
