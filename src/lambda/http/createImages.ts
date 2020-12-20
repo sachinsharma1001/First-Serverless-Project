@@ -2,8 +2,8 @@ import { APIGatewayProxyEvent, APIGatewayProxyHandler, APIGatewayProxyResult } f
 import * as AWS from 'aws-sdk';
 import * as uuid from 'uuid';
 
-const docClient = new AWS.DynamoDB.DocumentClient();
-const groupsTable = process.env.GROUPS_TABLE;
+const docClient = new AWS.DynamoDB.DocumentClient()
+const groupsTable = process.env.GROUPS_TABLE
 const imagesTable = process.env.IMAGES_TABLE;
 
 export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
@@ -26,8 +26,12 @@ export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEven
 
     const parsedBody = JSON.parse(event.body);
     const itemId = uuid.v4();
+    const timestamp = new Date().toISOString();
+    
     const newItem = {
-        id: itemId,
+        groupId,
+        timestamp,
+        itemId,
         ...parsedBody
     }
 
